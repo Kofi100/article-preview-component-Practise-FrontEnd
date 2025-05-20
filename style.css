@@ -1,0 +1,113 @@
+@font-face {
+    font-family: Manrope;
+    src: url(Manrope/Manrope-VariableFont_wght.ttf);
+}
+:root{
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+    --GrayishBlue:hsl(212, 23%, 69%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    min-height: 100vh;
+    padding: 1rem;
+    font-size: 13px;
+    background-color: var(--LightGrayishBlue);
+    font-family: Manrope;
+    align-items:center;
+
+}
+main{
+
+/* border: solid thin black ; */
+border-radius: .5rem;
+background-color:white;
+display: flex;
+flex-direction: row;
+/* height: 50vh; */
+height: 35vh;
+width: 70vw;
+}
+.drawerImage{
+    background-image: url("images/drawers.jpg");
+    /* width: 10rem; */
+    /* height: 17rem; */
+    /* height: 15rem;mobile view */ 
+    width: 50vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.articlePreview{
+    /* padding: 1rem; */
+    padding: 2rem;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.author{
+    display: flex;
+    flex-direction: row;
+
+}
+.author__Img{
+    width: 64px;
+    clip-path: circle();
+    
+}
+.author__Details{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+    margin-left: 1rem;
+}
+.articlePreview__footer{
+    display: flex;
+    
+
+    /* flex-direction: row; */
+    justify-content: space-around;/*between;*/
+    align-items: center;
+    position:relative;
+    /* pc */
+    /* width: 50vw; */
+}
+.articlePreview__ShareBtn{
+    /* clip-path: circle(); */
+    border-radius:50%;
+    /* border:solid thin black; */
+    border:none;
+    height: 3rem;
+    width: 3rem;
+    img{
+       width: 25px;  
+    }
+   
+}
+.articlePreview__SocialLinks{
+    display: flex;
+    align-items:center;
+    background-color:var(--VeryDarkGrayishBlue);
+    padding: 1rem;
+    column-gap: 16px;
+    border-radius: .5rem;
+    color:white;
+    position: absolute;
+    /* left:78vw; */
+    right:0;
+    /* top:-20vh; */
+    top:-8vh;
+    img{
+        height: 32px;
+        width: 32px;
+    }
+}
