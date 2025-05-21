@@ -82,7 +82,7 @@ if (element.classList.contains("classToCheck")){
 # Contacts
 
 <section style="display:flex;align-items:center;column-gap:16px">
-<a href="https://github.com/Kofi100"><img src="./images/needed/github-mark/github-mark-white.png" style=""> </a>
+<a href="https://github.com/Kofi100"><img src="./images/needed/github-mark/github-mark-white.png" style="width:100px"> </a>
 <a href="https://www.frontendmentor.io/profile/Kofi100">
 <img src="./images/needed/frontEndMentor.png" style="width:200px"></a>
 <a href="https://x.com/KofiOtchere_Dev"><img src="./images/needed/logo-white-BlackBackground-X.png" style="width:80px"></a>
