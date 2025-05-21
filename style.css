@@ -40,9 +40,10 @@ width: 70vw;
     /* height: 15rem;mobile view */ 
     width: 50vw;
     background-repeat: no-repeat;
-    background-size: 100%;
+    /* background-size: 100%; */
+    background-size:cover;
     border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
 }
 
 .articlePreview{
@@ -75,9 +76,10 @@ width: 70vw;
     
 
     /* flex-direction: row; */
-    justify-content: space-around;/*between;*/
+    justify-content: space-between;/*around;*/
     align-items: center;
     position:relative;
+    margin: 0 0 1rem;
     /* pc */
     /* width: 50vw; */
 }
@@ -91,8 +93,33 @@ width: 70vw;
     img{
        width: 25px;  
     }
+
    
 }
+.articlePreview__ShareBtn:hover,.articlePreview__ShareBtn__Mobile:hover,.articlePreview__SocialLinks:hover,.articlePreview__SocialLinks__Mobile:hover{
+    cursor: pointer;
+}
+.articlePreview__ShareBtn__Mobile{
+    /* clip-path: circle(); */
+    border-radius:50%;
+    /* border:solid thin black; */
+    border:none;
+    height: 1.5rem;
+    width: 1.5rem;
+    img{
+       width: 12px;
+       /* color: white; */
+       
+    }
+    svg path{
+        fill:white;
+       }
+    background-color: var(--DesaturatedDarkBlue);
+   
+}
+/* .articlePreview__ShareBtn__Mobile:hover{
+    cursor: pointer;
+} */
 .articlePreview__SocialLinks{
     display: flex;
     align-items:center;
@@ -110,4 +137,57 @@ width: 70vw;
         height: 32px;
         width: 32px;
     }
+}
+.articlePreview__SocialLinks__Mobile{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--VeryDarkGrayishBlue);
+    align-items: center;
+    padding: 12px 12px;
+    width: 73%;
+    border-radius: 0 0 .5rem .5rem;
+    p{
+        color: white;
+    }
+}
+.articlePreview__SocialLinks__Mobile__SocialLinksButtonsParent{
+    display: flex;
+    align-items:center;
+    column-gap: 12px;
+
+}
+.articlePreview__SocialLinks__Mobile__SocialLinksButtons{
+width: 20px;
+height: 20px;
+/* aspect-ratio: 1;  */
+}
+
+@media (max-width:760px) {
+    main{
+        flex-direction: column;
+        height: auto;
+
+    }
+    .drawerImage{
+        height: 22vh;
+        width: auto;
+        border-radius: .5rem .5rem 0 0;
+    }
+    .articlePreview__footer{
+        padding: 1rem 0;
+    }
+    .author__Img{
+        width: 32px;
+    }
+    .articlePreview{
+        width: auto;
+    }
+    .articlePreview__ShareBtn{
+        height:2rem;
+        width: 2rem;
+        img{
+            width: 12px;
+        }
+    }
+    
 }

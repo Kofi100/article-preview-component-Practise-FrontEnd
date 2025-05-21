@@ -1,31 +1,75 @@
-var hiddenLinks = document.getElementById("hiddenLinks")
-var shareBtn = document.getElementById("shareBtn")
-var shareMediaBtns=document.getElementsByClassName("shareMediaBtn")
-console.log("hello");
-//init
-hiddenLinks.style.display='none'
+var card = document.getElementById('card');
+var hiddenLinks = document.getElementById("hiddenLinks");
+var shareBtn = document.getElementById("shareBtn");
+var shareBtn__MobileAlt = document.getElementById("shareBtn__MobileAlt");
+var shareMediaBtns = document.getElementsByClassName("shareMediaBtn");
+var shareMediaBtns_Mobile = document.getElementsByClassName("articlePreview__SocialLinks__Mobile__SocialLinksButtons");
+var articlePreview = document.getElementById('articlePreview');
+var articlePreview__footer = document.getElementById("articlePreview__footer");
+var articlePreview__SocialLinks__Mobile = document.getElementById("articlePreview__SocialLinks__Mobile");
+const mediaQueryJSEqi = window.matchMedia('(max-width: 760px)'); // Added parentheses and space
+var screenMobile = false;
+
+console.log("Hello! JS Loading...");
+
+// Initialize - check if elements exist first
+if (hiddenLinks) hiddenLinks.style.display = 'none';
+if (articlePreview__SocialLinks__Mobile) articlePreview__SocialLinks__Mobile.style.display = 'none';
+
+// Set initial state
+screenMobile = mediaQueryJSEqi.matches; // Store just the boolean value
+
+if (mediaQueryJSEqi.matches) {
+    console.log("Initial load: Screen below 760px");
+    // Add any initial mobile-specific code here
+} else {
+    console.log("Initial load: Screen above 760px");
+    // Add any initial desktop-specific code here
+}
+
+mediaQueryJSEqi.addEventListener('change', function(e) {
+    if (e.matches) {
+        console.log("Changed to: Screen below 760px");
+        screenMobile = true;
+        // Add mobile-specific changes here
+        hiddenLinks.style.display = 'none'
+        shareBtn.style.backgroundColor='var(--LightGrayishBlue)'
+    } else {
+        console.log("Changed to: Screen above 760px");
+        screenMobile = false;
+        // Add desktop-specific changes here
+        articlePreview__SocialLinks__Mobile.style.display = 'none'
+        articlePreview__footer.style.display='flex'
+    }
+});
 
 
 //handlers
 shareBtn.onclick = function () {
+    if (!screenMobile) {
+      hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
+    shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'   
+     // switches b/n colors and states by setting the values of properties to the first declared and toggling/switching when necessary
+    }
+    else {
+        articlePreview__footer.style.display = 'none'
+        articlePreview__SocialLinks__Mobile.style.display = articlePreview__SocialLinks__Mobile.style.display === 'none' ? 'flex' : 'none'
+        articlePreview.style.paddingBottom = '.5rem';
+        card.style.borderRadius='.5rem .5rem 0 0'
+    }
     
-    // if (hiddenLinks.style.display === 'flex') {
-    //     hiddenLinks.style.display = 'none'
-        
-    // }
-    // else if (hiddenLinks.style.display === 'none') {
-    //     hiddenLinks.style.display = 'flex'
-        
-    // }
-    // else if (hiddenLinks.style.display != 'none') {
-    //     hiddenLinks.style.display='none'
-    // }
-    hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
-    shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'
-    // switches b/n colors and states by setting the values of properties to the first declared and toggling/switching when necessary
+   
+   
     console.log("clicked");
     
 };
+shareBtn__MobileAlt.onclick = function () {
+    if (screenMobile) {
+        articlePreview__footer.style.display = 'flex'
+        articlePreview__SocialLinks__Mobile.style.display = articlePreview__SocialLinks__Mobile.style.display === 'none' ? 'flex' : 'none'
+        card.style.borderRadius='.5rem'
+    }
+}
 // code to hide shareMedia Parent element when one of the buttons is pressed
 //works by looping thru all buttons in shareMediaBtns to check in inputs.
 //button here is a int ,but I'm using it to represent the index of every button available
@@ -34,5 +78,13 @@ for (let button = 0; button < shareMediaBtns.length; button++){
         
     hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
     shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'
+    }
+}
+
+for (let button = 0; button < shareMediaBtns_Mobile.length; button++){
+    shareMediaBtns_Mobile[button].onclick = function () {
+        articlePreview__SocialLinks__Mobile.style.display = 'none'
+        articlePreview__footer.style.display='flex'
+        
     }
 }
