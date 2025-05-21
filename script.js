@@ -12,6 +12,7 @@ var facebookBtns = document.getElementsByClassName("facebook");
 var twitterBtns = document.getElementsByClassName("twitter");
 var pinterestBtns = document.getElementsByClassName("pinterest");
 const mediaQueryJSEqi = window.matchMedia('(max-width: 760px)'); // Added parentheses and space
+// console.log(shareMediaBtns);
 
 var screenMobile = false;
 
@@ -83,59 +84,43 @@ shareBtn__MobileAlt.onclick = function () {
 //button here is an integer for both cases ,but I'm using it to represent the index of every button available
 
 for (let button = 0; button < shareMediaBtns.length; button++){
-    //    var linkDef;
-    // switch (button) {
-    //     case 0:
-    //         linkDef = "facebook.com";
-    //         break;
-    //     case 1:
-    //         linkDef = "twitter.com";
-    //         break;
-    //     case 2:
-    //         linkDef = "pinterest.com";
-    //         break;
-    
-    //     default:
-    //         linkDef=window.location.href;
-    // }
     shareMediaBtns[button].onclick = function () {
-        // copyLink(window.location.href)
-        // copyLink(linkDef);
     hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
     shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'
+       
+     //checks if a Social Media Link button has a class and copies link based on it.
+    if (shareMediaBtns[button].classList.contains("facebook")) {
+        copyLink("facebook.com")
+        }
+    if (shareMediaBtns[button].classList.contains("twitter")) {
+            copyLink("twitter.com")
+        }
+    if (shareMediaBtns[button].classList.contains("pinterest")) {
+             copyLink("pinterest.com")
+        }
+    
     }
 }
 
 for (let button = 0; button < shareMediaBtns_Mobile.length; button++){
-    // var linkDef;
-    // switch (button) {
-    //     case 0:
-    //         linkDef = "facebook.com";
-    //         break;
-    //     case 1:
-    //         linkDef = "twitter.com";
-    //         break;
-    //     case 2:
-    //         linkDef = "pinterest.com";
-    //         break;
-    
-    //     default:
-    //         linkDef=window.location.href;
-    // }
     shareMediaBtns_Mobile[button].onclick = function () {
         // copyLink(window.location.href)
         // copyLink(linkDef);
         articlePreview__SocialLinks__Mobile.style.display = 'none'
-        articlePreview__footer.style.display='flex'
-    }
-}
-for (let button = 0; button < facebookBtns.length; button++) {
-    const element = facebookBtns[button];
-    element.onclick = function () {
-        copyLink("facebook.com");
-    }
+        articlePreview__footer.style.display = 'flex'
 
+        //checks if a Social Media Link button for Mobile Phones has a class and copies link based on it.
+        if (shareMediaBtns[button].classList.contains("facebook")) {
+        copyLink("facebook.com")
+        }
+        if (shareMediaBtns[button].classList.contains("twitter")) {
+            copyLink("twitter.com")
+        }
+        if (shareMediaBtns[button].classList.contains("pinterest")) {
+             copyLink("pinterest.com")
+        }
     
+    }
 }
 
 
