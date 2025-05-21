@@ -1,4 +1,4 @@
-# 3 column preview Card Component
+# Article Preview Component
 
 ## Project Links
 
