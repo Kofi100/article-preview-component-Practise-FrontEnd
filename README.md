@@ -4,7 +4,7 @@
 
 <a href="https://github.com/Kofi100/article-preview-component-Practise-FrontEnd"><img src="./images/needed/github-mark/github-mark-white.svg" style=""> </a>
 <a href="https://kofi100.github.io/article-preview-component-Practise-FrontEnd"> <img src="./images/needed/githubPages.jpg" style="height:100px"></a>
-<a href="https://www.frontendmentor.io/solutions/intro-component-using-htmlcssjavascript-HKi0Wx4WRY"><img src="./images/needed/frontEndMentor.png" style="width:200px"></a>
+<a href="https://www.frontendmentor.io/solutions/article-preview-component-practise-F-h55zUqLu"><img src="./images/needed/frontEndMentor.png" style="width:200px"></a>
 
 ## Introduction
 
@@ -84,5 +84,5 @@ if (element.classList.contains("classToCheck")){
 <a href="https://github.com/Kofi100"><img src="./images/needed/github-mark/github-mark-white.svg" style=""> </a>
 <a href="https://www.frontendmentor.io/profile/Kofi100">
 <img src="./images/needed/frontEndMentor.png" style="width:200px"></a>
-<a href=""><img src="./images/needed/logo-white-BlackBackground-X.png" style="width:80px"></a>
+<a href="https://x.com/KofiOtchere_Dev"><img src="./images/needed/logo-white-BlackBackground-X.png" style="width:80px"></a>
 </section>
