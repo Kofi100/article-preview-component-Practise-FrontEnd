@@ -7,7 +7,12 @@ var shareMediaBtns_Mobile = document.getElementsByClassName("articlePreview__Soc
 var articlePreview = document.getElementById('articlePreview');
 var articlePreview__footer = document.getElementById("articlePreview__footer");
 var articlePreview__SocialLinks__Mobile = document.getElementById("articlePreview__SocialLinks__Mobile");
+
+var facebookBtns = document.getElementsByClassName("facebook");
+var twitterBtns = document.getElementsByClassName("twitter");
+var pinterestBtns = document.getElementsByClassName("pinterest");
 const mediaQueryJSEqi = window.matchMedia('(max-width: 760px)'); // Added parentheses and space
+
 var screenMobile = false;
 
 console.log("Hello! JS Loading...");
@@ -17,27 +22,27 @@ if (hiddenLinks) hiddenLinks.style.display = 'none';
 if (articlePreview__SocialLinks__Mobile) articlePreview__SocialLinks__Mobile.style.display = 'none';
 
 // Set initial state
-screenMobile = mediaQueryJSEqi.matches; // Store just the boolean value
+screenMobile = mediaQueryJSEqi.matches; // Stores the boolean value screenMobile
 
 if (mediaQueryJSEqi.matches) {
     console.log("Initial load: Screen below 760px");
-    // Add any initial mobile-specific code here
+    // Initial mobile-specific code here
 } else {
     console.log("Initial load: Screen above 760px");
-    // Add any initial desktop-specific code here
+    // Initial desktop-specific code here
 }
-
+//checks if screen has changed size or Not.
 mediaQueryJSEqi.addEventListener('change', function(e) {
     if (e.matches) {
         console.log("Changed to: Screen below 760px");
         screenMobile = true;
-        // Add mobile-specific changes here
+        // Mobile state changes
         hiddenLinks.style.display = 'none'
         shareBtn.style.backgroundColor='var(--LightGrayishBlue)'
     } else {
         console.log("Changed to: Screen above 760px");
         screenMobile = false;
-        // Add desktop-specific changes here
+        // Desktop State changes
         articlePreview__SocialLinks__Mobile.style.display = 'none'
         articlePreview__footer.style.display='flex'
     }
@@ -47,22 +52,24 @@ mediaQueryJSEqi.addEventListener('change', function(e) {
 //handlers
 shareBtn.onclick = function () {
     if (!screenMobile) {
+        //adjusting elements based on the desktop view
+        //by configuring hiddenlinks and the shareButton
       hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
     shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'   
      // switches b/n colors and states by setting the values of properties to the first declared and toggling/switching when necessary
     }
     else {
+        //adjusting elements based on the mobile view
         articlePreview__footer.style.display = 'none'
         articlePreview__SocialLinks__Mobile.style.display = articlePreview__SocialLinks__Mobile.style.display === 'none' ? 'flex' : 'none'
         articlePreview.style.paddingBottom = '.5rem';
         card.style.borderRadius='.5rem .5rem 0 0'
     }
-    
-   
-   
     console.log("clicked");
     
 };
+
+
 shareBtn__MobileAlt.onclick = function () {
     if (screenMobile) {
         articlePreview__footer.style.display = 'flex'
@@ -70,21 +77,74 @@ shareBtn__MobileAlt.onclick = function () {
         card.style.borderRadius='.5rem'
     }
 }
-// code to hide shareMedia Parent element when one of the buttons is pressed
-//works by looping thru all buttons in shareMediaBtns to check in inputs.
-//button here is a int ,but I'm using it to represent the index of every button available
+
+// code to hide shareMedia Parent element when one of the Social Media Link Buttons is pressed
+//works by looping thru all buttons in shareMediaBtns and shareMediaBtns_Mobile  to check inputs.
+//button here is an integer for both cases ,but I'm using it to represent the index of every button available
+
 for (let button = 0; button < shareMediaBtns.length; button++){
+    //    var linkDef;
+    // switch (button) {
+    //     case 0:
+    //         linkDef = "facebook.com";
+    //         break;
+    //     case 1:
+    //         linkDef = "twitter.com";
+    //         break;
+    //     case 2:
+    //         linkDef = "pinterest.com";
+    //         break;
+    
+    //     default:
+    //         linkDef=window.location.href;
+    // }
     shareMediaBtns[button].onclick = function () {
-        
+        // copyLink(window.location.href)
+        // copyLink(linkDef);
     hiddenLinks.style.display = hiddenLinks.style.display === 'none' ? 'flex' : 'none'
     shareBtn.style.backgroundColor = shareBtn.style.backgroundColor === 'var(--VeryDarkGrayishBlue)' ? 'var(--LightGrayishBlue)' : 'var(--VeryDarkGrayishBlue)'
     }
 }
 
 for (let button = 0; button < shareMediaBtns_Mobile.length; button++){
+    // var linkDef;
+    // switch (button) {
+    //     case 0:
+    //         linkDef = "facebook.com";
+    //         break;
+    //     case 1:
+    //         linkDef = "twitter.com";
+    //         break;
+    //     case 2:
+    //         linkDef = "pinterest.com";
+    //         break;
+    
+    //     default:
+    //         linkDef=window.location.href;
+    // }
     shareMediaBtns_Mobile[button].onclick = function () {
+        // copyLink(window.location.href)
+        // copyLink(linkDef);
         articlePreview__SocialLinks__Mobile.style.display = 'none'
         articlePreview__footer.style.display='flex'
-        
     }
+}
+for (let button = 0; button < facebookBtns.length; button++) {
+    const element = facebookBtns[button];
+    element.onclick = function () {
+        copyLink("facebook.com");
+    }
+
+    
+}
+
+
+
+
+//custom functions
+//copies Link of Page/Custom URL you can declare.
+function copyLink(link) {
+    navigator.clipboard.writeText(link).then(() => {
+        alert(`${link} copied.`)
+    })
 }
