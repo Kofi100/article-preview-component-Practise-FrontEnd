@@ -1,11 +1,11 @@
 # Article Preview Component
 
 ## Project Links
-
-<a href="https://github.com/Kofi100/article-preview-component-Practise-FrontEnd"><img src="./images/needed/github-mark/github-mark-white.png" style=""> </a>
+<section style="display:flex;align-items:center;column-gap:16px;">
+<a href="https://github.com/Kofi100/article-preview-component-Practise-FrontEnd"><img src="./images/needed/github-mark/github-mark-white.png" style="width:200px"> </a>
 <a href="https://kofi100.github.io/article-preview-component-Practise-FrontEnd"> <img src="./images/needed/githubPages.jpg" style="height:100px"></a>
 <a href="https://www.frontendmentor.io/solutions/article-preview-component-practise-F-h55zUqLu"><img src="./images/needed/frontEndMentor.png" style="width:200px"></a>
-
+</section>
 ## Introduction
 
 Users should be able to:
